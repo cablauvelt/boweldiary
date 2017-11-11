@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Bowel Entry</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+        <!--JavaScript-->
+		    <script src="jquery-3.2.1.min.js"></script>
+		    <script src="conditional.js"></script>
+
+        <!--<div>Icons made by <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+      
+    </head>
+    <header>
+      <div class="header">
+        <section>
+          <div> <a class="back_text" href="javascript:history.back()"><img class="icon" src="images/back.svg"></a> </div>
+          <div> <h1 class="pageName"> New Entry </h1></div>
+          
+        </section>  
+      </div>
+    </header>
+  
+
+    <body>
+      
+      <div>
+        
+      <form id="live_form" action = "#" method="post">
+					 <div class="form-group">
+					  <label class="question">
+					   What kind of bowel episode did you have?
+					  </label>
+					  <div class="">
+					   <div class="radio">
+                <label class="radio">
+                 <input name="episode" type="radio" value="toilet"/>
+                 Bowel movement in toilet
+                </label>
+					   </div>
+              <p>
+					   <div class="radio">
+              <label class="radio">
+               <input name="episode" type="radio" value="leakage"/>
+               Bowel leakage
+              </label>
+					   </div>
+					  </div>
+					 </div>
+        
+            
+					 <div class="form_group_hidden" id="episode_toilet">
+					  <hr>
+             <label class="question" for="episode_toilet">
+					   Did you experience any leakage or staining afterwards?
+					  </label>
+             <div>
+						   <label class="radio">
+							<input name="bm_leak" type="radio" value="yes"/>
+							Yes
+						   </label>
+              <p>
+						   <label class="radio">
+							<input name="bm_leak" type="radio" value="no"/>
+							No
+						   </label>
+						 </div>
+             
+					 </div>
+        
+          
+        
+					 <div class="form_group_hidden">
+            <hr>
+					  <label class="question" for="episode_leakage">
+					   What were you doing when the leak happened?
+					  </label>
+					  <textarea class="form-control" cols="40" id="episode_leakage" name="episode_leakage" rows="2" style="margin:0;"></textarea>
+					 </div>
+					 
+           <div class="form_group_hidden" id="urgency">
+					  <hr>
+             <label class="question" for="urgency">
+					   Was there urgency?
+					  </label>
+             <div>
+						   <label class="radio">
+							<input name="urgency" type="radio" value="none"/>
+							None
+						   </label>
+               <p></p>
+						   <label class="radio">
+							<input name="urgency" type="radio" value="mild"/>
+							Mild
+						   </label>
+               <p></p>
+               <label class="radio">
+							<input name="urgency" type="radio" value="moderate"/>
+							Moderate
+						   </label>
+               <p></p>
+                <label class="radio">
+							<input name="urgency" type="radio" value="severe"/>
+							Severe
+						   </label>
+						 </div>
+              
+					 </div> 
+        
+            <div class="form_group_hidden" id="bristol">
+					  <hr>
+            <label class="question" for="bristol">
+					   Which of the following best describes your stool?
+					  </label>
+             <div>
+						   <label class="radio">
+							<input name="bristol" type="radio" value="none"/>
+							1
+						   </label>
+						   <label class="radio">
+							<input name="bristol" type="radio" value="mild"/>
+							2
+						   </label>
+               <label class="radio-inline">
+							<input name="bristol" type="radio" value="moderate"/>
+							3
+						   </label>
+                <label class="radio-inline">
+							<input name="bristol" type="radio" value="severe"/>
+							4
+						   </label>
+						 </div>
+					 </div> 
+            
+
+					 <div class="form_group_hidden" name="submit">
+					   <button class="btn btn-primary " name="submit" type="submit">
+						Submit
+					   </button>
+					 </div>
+            
+					</form>						
+        
+      </div>
+      
+    </body>
+</html>

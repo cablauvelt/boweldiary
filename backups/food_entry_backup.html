@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Bowel Entry</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--<div>Icons made by <a href="https://www.flaticon.com/authors/gregor-cresnar" title="Gregor Cresnar">Gregor Cresnar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+      
+    </head>
+    <header>
+      <div class="header">
+        <section>
+          <div> <a class="back_text" href="javascript:history.back()"><img class="icon" src="images/back.svg"></a> </div>
+          <div> <h1 class="pageName"> New Entry </h1></div>
+          
+        </section>  
+      </div>
+    </header>
+  
+
+    <body>
+      
+      <div>
+        
+      <form id="live_form" action = "#" method="post">
+            
+					 <div class="form-group">
+             <label class="question" for="food_entry">
+					   Type the food or drink item you consumed. 
+               <p style="font-size:15px;" >Please be as specific as possible.</p>
+					  </label>
+					  <textarea class="form-control" cols="40" id="food_entry" name="food_entry" rows="1" style="margin:0;"></textarea>
+					 </div>
+        
+					 
+           <div class="form-group" id="quantity">
+					  <hr>
+             <label class="question" for="quantity">
+					   Quantity:
+             <p style="font-size:15px;" >For example: 1 cup or 2 slices</p>
+					  </label>
+            <textarea class="form-control" cols="40" id="quantity" name="quantity" rows="1" style="margin:0;"></textarea>
+					 </div>
+            
+          <br>
+          <div>
+             <div class="form-group" name="submit" id="add_button"> <!-- this button should submit the foods and then clear the food_entry form so they can enter more foods -->
+               <button class="btn btn-primary " name="submit" type="submit">
+              Add Entry
+               </button>
+             </div>
+             <div class="form-group" name="submit" id="done_button"> <!-- this button should bring users back to food_diary.html -->
+               <button class="done_button" name="submit" type="submit">
+              Done
+               </button>
+             </div>
+            <div id="clear">
+            </div>
+          </div>
+					</form>			
+        
+      </div>
+      
+     
+    </body>
+</html>

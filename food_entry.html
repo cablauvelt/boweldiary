@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Food Entry</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="jquery.repeatable.js"></script>
+</head>
+
+<header>
+  <div class="header">
+    <section>
+      <div> <a class="home_header" href="index.html"><img class="header_icon" src="images/home.svg"></a> </div>
+      <div>
+        <a data-toggle="modal" class="help_header" data-target="#myModal" href="#"><img class="header_icon" src="images/info.svg"></a>
+      </div>
+      <div> <h1 class="pageName"> Food Entry </h1></div>
+
+      <!-- The Modal -->
+      <div id="myModal" class="mymodal" data-backdrop="false">
+        <!-- Modal content -->
+        <div class="mymodal_content">
+          <span class="close" data-dismiss="modal">&times;</span>
+          <p class="question" style="font-weight:lighter;margin-bottom:5px;margin-top:5px;">Information</p>
+          <div style="margin:0 1em 0 1em;">
+            <p style="text-align:center;">Instead of typing, you can use your phone's built-in microphone to dictate text.</p>
+            <img class="help_image" src="images/iphonedictation1.jpg">
+            <hr>
+          </div>
+          <p class="question" style="font-weight:lighter;margin-bottom:5px;margin-top:5px;">Still have questions?</p>
+          <form class="modal_popup">
+            <label for="help">
+              Please describe the issue you are having.
+            </label>
+            <textarea cols="40" id="help" name="help" rows="4"></textarea>
+            <label for="feeling">How do you feel right now?</label>
+            <select name="feeling" class="form-control">
+              <option disabled selected value>Select an option</option>
+              <option>Confused</option>
+              <option>Frustrated</option>
+              <option>Angry</option>
+              <option>Worried</option>
+              <option>Happy</option>
+              <option>Excited</option>
+              <option>Neutral</option>
+            </select>
+
+            <div name="submit" id="add_button">
+              <button class="button" type="button">
+                Send Message
+              </button>
+            </div>
+            <div class="form-group" id="done_button">
+              <button data-dismiss="modal" class="done_button">Cancel</button>
+            </div>
+            <div id="clear">
+            </div>
+          </form>
+        </div>
+
+        <script src="modalpopup.js"></script>
+
+      </div>
+
+    </section>
+  </div>
+
+</header>
+
+
+<body>
+  <div>
+    <div>
+      <form action = "#" method="post">
+
+        <fieldset class="todos_labels">
+
+          <div>
+            <label for="date" style="font-weight:bold;margin-bottom:3px;">
+              Date for entry:
+            </label>
+            <input type="date" id="date" value="">
+
+            <label for="time" style="font-weight:bold;margin-bottom:3px;" >
+              Time for entry:
+            </label>
+            <input type="time" id="time">
+
+            <hr style="margin-top:0.75em;">
+
+            <p class="question">
+              What food or drink did you consume, and how much?
+            </p>
+            <p class="sub_question">
+              Ex: 1 cup of skim milk
+            </p>
+          </div>
+
+          <div class="repeatable"></div>
+
+          <div class="form-group" id="add_button">
+            <button class="btn btn-default add" type="button">
+              + Add another
+            </button>
+          </div>
+          <div class="form-group" name="submit" id="done_button">
+            <button class="done_button" name="submit" type="submit">Complete entry
+            </button>
+          </div>
+          <div id="clear">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+
+    <script type="text/template" id="todos_labels">
+      <div class="field-group controls-row">
+        <div class="form-group">
+          <div style="width:85%;float:left;">
+            <input type="text" name="todos_labels[{?}][food_entry]" value="{food_entry}" id="food_entry_{?}">
+          </div>
+          <div style="width:10%;float:right;margin-top:0.8em;">
+            <input type="button" class="delete" value="X"/>
+          </div>
+          <div id="clear">
+          </div>
+        </div>
+
+      </div>
+    </script>
+
+    <script>
+    $(function() {
+      $(".todos_labels .repeatable").repeatable({
+        addTrigger: ".todos_labels .add",
+        deleteTrigger: ".todos_labels .delete",
+        template: "#todos_labels",
+        startWith: 1,
+      });
+    });
+    </script>
+
+  </div>
+
+  <!-- Bootstrap JavaScript, jQuery, and Tether -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>

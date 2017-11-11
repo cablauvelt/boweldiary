@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+          <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+  
+<body>
+
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="question" style="font-weight:lighter;margin-bottom:5px;">We're happy to help!</p>
+    <form class="modal_popup">
+        <label for="help">
+          Please describe the issue you are having.
+        </label>
+        <textarea cols="40" id="help" name="help" rows="4"></textarea>
+        <label for="feeling">How do you feel right now?</label>
+        <select name="feeling" class="form-control">
+          <option disabled selected value>Select an option</option>
+          <option>Confused</option>
+          <option>Frustrated</option>
+          <option>Angry</option>
+          <option>Worried</option>
+          <option>Happy</option>
+          <option>Excited</option>
+          <option>Neutral</option>
+        </select>
+      
+        <div name="submit" id="add_button">
+           <button class="btn btn-default add" type="button">
+            Send Message
+           </button>
+         </div>
+         <div class="form-group" id="done_button">
+             <button id="cancel" class="done_button">Cancel</button>
+         </div>
+        <div id="clear">
+           </div>
+    </form>  
+  </div>
+
+</div>
+
+
+  <script src="modalpopup.js"></script>
+
+</body>
+</html>

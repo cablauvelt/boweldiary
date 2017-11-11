@@ -1,0 +1,121 @@
+<html>
+	<head>
+		<!--JavaScript and CSS -->
+		<script src="jquery-3.2.1.min.js"></script>
+		<script src="conditional.js"></script>		
+		<link rel="stylesheet" href="bootstrap-iso.css" /> <!-- https://formden.com/blog/isolate-bootstrap -->	
+	</head>
+	<body>
+
+	 
+	<!-- HTML Form (wrapped in an isolated Bootstrap 3 div) -->
+	<div class="bootstrap-iso">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-6">
+					<form id="live_form">
+					 <div class="form-group">
+					  <label class="control-label ">
+					   What kind of bowel episode did you have?
+					  </label>
+					  <div class="">
+					   <div class="radio">
+                <label class="radio">
+                 <input name="episode" type="radio" value="toilet"/>
+                 Bowel movement in toilet
+                </label>
+					   </div>
+					   <div class="radio">
+              <label class="radio">
+               <input name="episode" type="radio" value="leakage"/>
+               Bowel leakage
+              </label>
+					   </div>
+					  </div>
+					 </div>
+            
+					 <div class="form-group hidden" id="episode_toilet">
+					  <label class="control-label" for="episode_toilet">
+					   Did you experience any leakage or staining after having a a bowel movement?
+					  </label>
+             <div>
+						   <label class="radio-inline">
+							<input name="bm_leak" type="radio" value="yes"/>
+							Yes
+						   </label>
+						   <label class="radio-inline">
+							<input name="bm_leak" type="radio" value="no"/>
+							No
+						   </label>
+						 </div>
+					 </div>
+
+					 <div class="form-group hidden">
+					  <label class="control-label" for="episode_leakage">
+					   What were you doing when the leak happened?
+					  </label>
+					  <textarea class="form-control" cols="40" id="episode_leakage" name="episode_leakage" rows="10"></textarea>
+					 </div>
+					 
+           <div class="form-group hidden" id="urgency">
+					  <label class="control-label" for="urgency">
+					   Was there any urgency?
+					  </label>
+             <div>
+						   <label class="radio-inline">
+							<input name="urgency" type="radio" value="none"/>
+							None
+						   </label>
+						   <label class="radio-inline">
+							<input name="urgency" type="radio" value="mild"/>
+							Mild
+						   </label>
+               <label class="radio-inline">
+							<input name="urgency" type="radio" value="moderate"/>
+							Moderate
+						   </label>
+                <label class="radio-inline">
+							<input name="urgency" type="radio" value="severe"/>
+							Severe
+						   </label>
+						 </div>
+					 </div> 
+            
+            <div class="form-group hidden" id="bristol">
+					  <label class="control-label" for="bristol">
+					   Which of the following images best describes your stool?
+					  </label>
+             <div>
+						   <label class="radio-inline">
+							<input name="bristol" type="radio" value="none"/>
+							1
+						   </label>
+						   <label class="radio-inline">
+							<input name="bristol" type="radio" value="mild"/>
+							2
+						   </label>
+               <label class="radio-inline">
+							<input name="bristol" type="radio" value="moderate"/>
+							3
+						   </label>
+                <label class="radio-inline">
+							<input name="bristol" type="radio" value="severe"/>
+							4
+						   </label>
+						 </div>
+					 </div> 
+            
+
+					 <div class="form-group">
+					   <button class="btn btn-primary " name="submit" type="submit">
+						Submit
+					   </button>
+					 </div>
+            
+					</form>								
+				</div>										
+			</div>
+		</div>
+	</div> 
+	</body>
+</html>

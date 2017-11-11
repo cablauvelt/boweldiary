@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Bowel Entry</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/main.css">
+
+  <!--JavaScript for hide/collapse questions-->
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="conditional.js"></script>
+</head>
+
+<header>
+  <div class="header">
+    <section>
+      <div> <a class="home_header" href="index.html"><img class="header_icon" src="images/home.svg"></a> </div>
+      <div>
+        <a data-toggle="modal" class="help_header" data-target="#myModal" href="#"><img class="header_icon" src="images/info.svg"></a>
+      </div>
+      <div> <h1 class="pageName"> Bowel Entry </h1></div>
+
+      <!-- The Modal -->
+      <div id="myModal" class="mymodal" data-backdrop="false">
+        <!-- Modal content -->
+        <div class="mymodal_content">
+          <span class="close" data-dismiss="modal">&times;</span>
+          <p class="question" style="font-weight:lighter;margin-bottom:5px;margin-top:5px;">We're happy to help!</p>
+          <form class="modal_popup">
+            <label for="help">
+              Please describe the issue you are having.
+            </label>
+            <textarea cols="40" id="help" name="help" rows="4"></textarea>
+            <label for="feeling">How do you feel right now?</label>
+            <select name="feeling" class="form-control">
+              <option disabled selected value>Select an option</option>
+              <option>Confused</option>
+              <option>Frustrated</option>
+              <option>Angry</option>
+              <option>Worried</option>
+              <option>Happy</option>
+              <option>Excited</option>
+              <option>Neutral</option>
+            </select>
+
+            <div name="submit" id="add_button">
+              <button class="button" type="button">
+                Send Message
+              </button>
+            </div>
+            <div class="form-group" id="done_button">
+              <button data-dismiss="modal" class="done_button">Cancel</button>
+            </div>
+            <div id="clear">
+            </div>
+          </form>
+        </div>
+
+        <script src="modalpopup.js"></script>
+
+      </div>
+
+    </section>
+  </div>
+</header>
+
+
+<body>
+  <div>
+    <!--Form for Bowel Entry Questions-->
+    <form id="live_form" action = "#" method="post">
+
+      <label for="date" style="font-weight:bold;margin-bottom:3px;">
+        Date for entry:
+      </label>
+      <input type="date" id="date" value="">
+
+      <label for="time" style="font-weight:bold;margin-bottom:3px;" >
+        Time for entry:
+      </label>
+      <input type="time" id="time">
+
+      <hr style="margin-top:0.75em;">
+
+      <div class="form-group">
+
+        <label class="question">
+          What kind of bowel episode did you have?
+        </label>
+        <div class="">
+          <div class="radio">
+            <label class="radio">
+              <input name="episode" type="radio" value="toilet"/>
+              Bowel movement in toilet
+            </label>
+          </div>
+          <p>
+            <div class="radio">
+              <label class="radio">
+                <input name="episode" type="radio" value="leakage"/>
+                Bowel leakage
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form_group_hidden" id="episode_toilet">
+          <hr>
+          <label class="question" for="episode_toilet">
+            Did you experience any leakage or staining afterwards?
+          </label>
+          <div>
+            <label class="hidden_radio">
+              <input name="bm_leak" type="radio" value="yes"/>
+              <div style="margin-bottom:1em;" id="left_select" class="select_option" >Yes</div>
+            </label>
+            <label class="hidden_radio">
+              <input name="bm_leak" type="radio" value="no"/>
+              <div style="margin-bottom:1.5em;"  id="right_select" class="select_option" >No</div>
+            </label>
+          </div>
+        </div>
+
+
+
+        <div class="form_group_hidden">
+          <hr>
+          <label class="question" for="episode_leakage">
+            What were you doing when the leak happened?
+          </label>
+          <textarea class="form-control" cols="40" id="episode_leakage" name="episode_leakage" rows="2" style="margin:0;"></textarea>
+        </div>
+
+        <div class="form_group_hidden" id="urgency">
+          <hr>
+          <label class="question" for="urgency">
+            Was there urgency? <br><span>(Feeling of "gotta go!")</span>
+          </label>
+          <div>
+            <label class="radio">
+              <input name="urgency" type="radio" value="none"/>
+              None
+            </label>
+            <p></p>
+            <label class="radio">
+              <input name="urgency" type="radio" value="mild"/>
+              Mild
+            </label>
+            <p></p>
+            <label class="radio">
+              <input name="urgency" type="radio" value="moderate"/>
+              Moderate
+            </label>
+            <p></p>
+            <label class="radio">
+              <input name="urgency" type="radio" value="severe"/>
+              Severe
+            </label>
+          </div>
+        </div>
+
+
+        <div class="form_group_hidden" id="bristol">
+          <hr>
+          <label class="question" for="bristol">
+            Select the option that best matches your stool.
+          </label>
+          <div id="bristol_container">
+            <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+              <input name="bristol" type="radio" value="bristol1"/>
+              <div>
+                <div class="bristol_pic_section">
+                  <img src="images2/type1.png" alt="Bristol Type 1" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Separate hard lumps (hard to pass)
+                </div>
+              </div>
+            </label>
+
+            <div></div>
+
+            <label class="hidden_bristol" id="bristol_select" style="right:50%">
+              <input name="bristol" type="radio" value="bristol2"/>
+              <div>
+                <div  class="bristol_pic_section">
+                  <img src="images2/type2.png" alt="Bristol Type 2" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Lumpy and sausage like
+                </div>
+              </div>
+            </label>
+
+          </div>
+
+          <div id="bristol_container">
+            <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+              <input name="bristol" type="radio" value="bristol3"/>
+              <div>
+                <div class="bristol_pic_section">
+                  <img src="images2/type3.png" alt="Bristol Type 3" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Sausage shape with surface cracks
+                </div>
+              </div>
+            </label>
+
+            <div></div>
+
+            <label class="hidden_bristol" id="bristol_select" style="right:50%">
+              <input name="bristol" type="radio" value="bristol4"/>
+              <div>
+                <div  class="bristol_pic_section">
+                  <img src="images2/type4.png" alt="Bristol Type 4" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Smooth, soft sausage or snake
+                </div>
+              </div>
+            </label>
+
+          </div>
+
+          <div id="bristol_container">
+            <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+              <input name="bristol" type="radio" value="bristol5"/>
+              <div>
+                <div class="bristol_pic_section">
+                  <img src="images2/type5.png" alt="Bristol Type 5" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Soft blobs with clear cut edges
+                </div>
+              </div>
+            </label>
+
+            <div></div>
+
+            <label class="hidden_bristol" id="bristol_select" style="right:50%">
+              <input name="bristol" type="radio" value="bristol6"/>
+              <div>
+                <div  class="bristol_pic_section">
+                  <img src="images2/type6.png" alt="Bristol Type 6" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Mushy consistency with ragged edges
+                </div>
+              </div>
+            </label>
+
+          </div>
+
+          <div id="bristol_container" style="width:50%;max-width:200px;">
+            <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+              <input name="bristol" type="radio" value="bristol7"/>
+              <div>
+                <div class="bristol_pic_section">
+                  <img src="images2/type7.png" alt="Bristol Type 7" class="bristol_pic">
+                </div>
+                <div class="bristol_text_section">
+                  Liquid, no solid pieces
+                </div>
+              </div>
+            </label>
+          </div>
+
+        </div>
+
+        <br>
+
+        <div class="form_group_hidden" name="submit">
+          <button class="btn btn-primary " name="submit" type="submit">
+            Submit
+          </button>
+        </div>
+      </form>
+
+    </div>
+
+    <!-- Bootstrap JavaScript, jQuery, and Tether -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+
+  <footer>
+
+  </footer>
+
+  </html>
