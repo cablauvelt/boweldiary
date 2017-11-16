@@ -3,26 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile</title>
-  <!-- Bootstrap stylesheet-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <title>Home</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap stylesheet-->
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon"
       type="image/png" sizes="any"
       href="images/flavicon.png" >
-
-
 </head>
+
 <header>
   <div class="header">
     <section>
-      <div> <a class="home_header" href="home.html"><img class="header_icon" src="images/home.svg"></a> </div>
+      <div> <a data-toggle="modal" data-target="#signout_warning" class="sign_out" href="#">Log Out</a> </div>
+
+      <div class="mymodal" id="signout_warning" data-backdrop="false" >
+        <div class="mymodal_content" style="max-width:600px;padding:1em;">
+              <p class="sub_question">Are you sure you want to log out?</p>
+              <div style="float:left;width:48%;">
+                <button class="button" data-dismiss="modal" style="font-size:16px;background-color:#FF6850;border: 1px solid #FF553A;">Cancel</button>
+              </div>
+              <div style="float:right;width:48%;">
+                <button class="done_button" style="float:right;font-size:16px;">Log Out</button>
+              </div>
+              <div id="clear">
+              </div>
+        </div>
+      </div>
+
       <div>
         <a data-toggle="modal" class="help_header" data-target="#myModal" href="#"><img class="header_icon" src="images/info.svg"></a>
       </div>
-      <div> <h1 class="pageName"> Profile </h1></div>
+      <div>
+        <h1 class="homePageName">Home</h1>
+      </div>
 
       <!-- The Modal -->
       <div id="myModal" class="mymodal" data-backdrop="false">
@@ -68,24 +83,29 @@
   </div>
 </header>
 
+
+<!-- Home Page Links -->
 <body>
-
-  <form>
-    <label class="home" for="name">
-      Name:
-      <input type="text" name="name" placeholder="Displays saved name" x-webkit-speech/>
-    </label>
-
-    <label class="home" for="password">
-      Password:
-      <input type="password" name="password" placeholder="Displays dots for password"/>
-    </label>
-
-    <button name="submit" type="submit">
-      Save
-    </button>
-
-  </form>
+  <div class="mainContainer">
+    <a class="homePages" href="food_diary.html">
+      <p class="homePages">
+        <img src="images/cutlery.svg" class="home_icon" alt = "Food Diary Icon">
+        &nbsp;Food Diary
+      </p>
+    </a>
+    <a class="homePages" href="bowel_diary.html">
+      <p class="homePages">
+        <img src="images/toilet2.svg" class="home_icon" alt="Bowel Diary Icon">
+        &nbsp;Bowel Diary
+      </p>
+    </a>
+    <a class="homePages" href="profile.html">
+      <p class="homePages">
+        <img src="images/user.svg" class="home_icon" alt="Profile Icon">
+        &nbsp;Profile
+      </p>
+    </a>
+  </div>
 
   <!-- Bootstrap JavaScript, jQuery, and Tether -->
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

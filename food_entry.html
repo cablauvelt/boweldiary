@@ -9,12 +9,16 @@
   <link rel="stylesheet" href="css/main.css">
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="jquery.repeatable.js"></script>
+  <link rel="icon"
+      type="image/png" sizes="any"
+      href="images/flavicon.png" >
+
 </head>
 
 <header>
   <div class="header">
     <section>
-      <div> <a class="home_header" href="index.html"><img class="header_icon" src="images/home.svg"></a> </div>
+      <div> <a class="home_header" href="home.html"><img class="header_icon" src="images/home.svg"></a> </div>
       <div>
         <a data-toggle="modal" class="help_header" data-target="#myModal" href="#"><img class="header_icon" src="images/info.svg"></a>
       </div>
@@ -25,13 +29,13 @@
         <!-- Modal content -->
         <div class="mymodal_content">
           <span class="close" data-dismiss="modal">&times;</span>
-          <p class="question" style="font-weight:lighter;margin-bottom:5px;margin-top:5px;">Information</p>
+          <p class="info_header">Information</p>
           <div style="margin:0 1em 0 1em;">
             <p style="text-align:center;">Instead of typing, you can use your phone's built-in microphone to dictate text.</p>
             <img class="help_image" src="images/iphonedictation1.jpg">
             <hr>
           </div>
-          <p class="question" style="font-weight:lighter;margin-bottom:5px;margin-top:5px;">Still have questions?</p>
+          <p class="info_header">Still have questions?</p>
           <form class="modal_popup">
             <label for="help">
               Please describe the issue you are having.
@@ -80,17 +84,12 @@
         <fieldset class="todos_labels">
 
           <div>
-            <label for="date" style="font-weight:bold;margin-bottom:3px;">
-              Date for entry:
+            <label for="date_time" class="date_time">
+              Date and time for entry:
             </label>
-            <input type="date" id="date" value="">
+            <input type="datetime-local" id="date_time" value="">
 
-            <label for="time" style="font-weight:bold;margin-bottom:3px;" >
-              Time for entry:
-            </label>
-            <input type="time" id="time">
-
-            <hr style="margin-top:0.75em;">
+            <hr style="margin-top:1.5em;">
 
             <p class="question">
               What food or drink did you consume, and how much?

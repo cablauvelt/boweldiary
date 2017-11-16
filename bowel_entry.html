@@ -9,6 +9,10 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="css/main.css">
 
+  <link rel="icon"
+      type="image/png" sizes="any"
+      href="images/flavicon.png" >
+
   <!--JavaScript for hide/collapse questions-->
   <script src="jquery-3.2.1.min.js"></script>
   <script src="conditional.js"></script>
@@ -17,7 +21,7 @@
 <header>
   <div class="header">
     <section>
-      <div> <a class="home_header" href="index.html"><img class="header_icon" src="images/home.svg"></a> </div>
+      <div> <a class="home_header" href="home.html"><img class="header_icon" src="images/home.svg"></a> </div>
       <div>
         <a data-toggle="modal" class="help_header" data-target="#myModal" href="#"><img class="header_icon" src="images/info.svg"></a>
       </div>
@@ -28,7 +32,7 @@
         <!-- Modal content -->
         <div class="mymodal_content">
           <span class="close" data-dismiss="modal">&times;</span>
-          <p class="question" style="font-weight:lighter;margin-bottom:5px;margin-top:5px;">We're happy to help!</p>
+          <p class="info_header">We're happy to help!</p>
           <form class="modal_popup">
             <label for="help">
               Please describe the issue you are having.
@@ -73,17 +77,12 @@
     <!--Form for Bowel Entry Questions-->
     <form id="live_form" action = "#" method="post">
 
-      <label for="date" style="font-weight:bold;margin-bottom:3px;">
-        Date for entry:
+      <label for="date_time" class="date_time">
+        Date and time for entry:
       </label>
-      <input type="date" id="date" value="">
+      <input type="datetime-local" id="date_time" value="">
 
-      <label for="time" style="font-weight:bold;margin-bottom:3px;" >
-        Time for entry:
-      </label>
-      <input type="time" id="time">
-
-      <hr style="margin-top:0.75em;">
+      <hr style="margin-top:1.5em;">
 
       <div class="form-group">
 
@@ -116,18 +115,17 @@
           <div>
             <label class="hidden_radio">
               <input name="bm_leak" type="radio" value="yes"/>
-              <div style="margin-bottom:1em;" id="left_select" class="select_option" >Yes</div>
+              <div style="margin-bottom:0em;" id="left_select" class="select_option" >Yes</div>
             </label>
             <label class="hidden_radio">
               <input name="bm_leak" type="radio" value="no"/>
-              <div style="margin-bottom:1.5em;"  id="right_select" class="select_option" >No</div>
+              <div style="margin-bottom:0em;"  id="right_select" class="select_option" >No</div>
             </label>
           </div>
+          <div id="clear"></div>
         </div>
 
-
-
-        <div class="form_group_hidden">
+        <div class="form_group_hidden" id="episode_leakage">
           <hr>
           <label class="question" for="episode_leakage">
             What were you doing when the leak happened?
@@ -177,7 +175,7 @@
                   <img src="images2/type1.png" alt="Bristol Type 1" class="bristol_pic">
                 </div>
                 <div class="bristol_text_section">
-                  Separate hard lumps (hard to pass)
+                  Separate hard lumps
                 </div>
               </div>
             </label>
@@ -235,7 +233,7 @@
                   <img src="images2/type5.png" alt="Bristol Type 5" class="bristol_pic">
                 </div>
                 <div class="bristol_text_section">
-                  Soft blobs with clear cut edges
+                  Soft blobs with clear cut edges (easy to pass)
                 </div>
               </div>
             </label>

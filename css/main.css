@@ -4,13 +4,20 @@
   box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Avenir-medium";
+    src: url(css/fonts/Avenir.ttc);
+}
+
 header {
-  font-family: 'Avenir-medium', sans-serif;
+  font-family: 'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
   letter-spacing:0.3px;
 }
 
 body {
-  font-family: 'Avenir-medium', sans-serif;
+  font-family: 'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
   letter-spacing:0px;
   color: #384047;
 }
@@ -35,6 +42,14 @@ h2 {
   font-weight:600;
 }
 
+h2.home_title {
+  text-align: center;
+  font-size: 25px;
+  margin:0;
+  margin-bottom: -5px;
+  font-weight:600;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="datetime"],
@@ -51,13 +66,23 @@ select {
   height: auto;
   margin: 0;
   outline: 0;
-  padding: 15px;
+  padding: 13px;
   width: 100%;
   background-color: white;
   color: #384047;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
   border: 1px #cfcfcf solid;
+}
+
+input[type="text"],input[type="password"].home_field{
+  margin-bottom:25px;
+  padding:10px;
+  font-weight:500;
+}
+
+input[placeholder]{
+  font-weight:500;
 }
 
 input[type="date"],
@@ -88,6 +113,7 @@ select {
   height: 32px;
   border-radius: 2px;
 }
+
 
 button {
   padding: 19px 30px 18px 30px;
@@ -143,6 +169,12 @@ label.profile {
 label.light {
   font-weight: 300;
   display: inline;
+}
+
+label.home{
+  font-weight:600;
+  display:block;
+  margin-bottom:-10px;
 }
 
 hr {
@@ -229,22 +261,24 @@ p.newEntry:hover {
 }
 
 h1.homePageName {
+  font-family: "Avenir-medium", "Avenir", sans-serif;
+  font-weight:500;
   text-transform:capitalize;
   font-size: 20px;
   padding: 13px 20px;
   color:#fff;
-  width:100%;
-  font-weight:100;
+  width:85%;
 }
 
 h1.pageName {
+  font-family: 'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
   text-transform:capitalize;
   font-size: 20px;
-  padding: 13px 20px;
+  padding: 15px 20px;
   color:#fff;
   width:100%;
   margin-left:-45px;
-  font-weight:100;
 }
 
 .header {
@@ -281,7 +315,7 @@ h1.pageName {
 }
 
 li {
-  font-family:Avenir;
+  font-family:"Avenir";
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 0em;
@@ -329,6 +363,21 @@ ul {
   background-color:#266DD5;
 }
 
+.sign_out {
+  float:left;
+  padding:0.5em 1em 1em 1em;
+  height:2.3em;
+  margin:0.35em 0 0 0.35em;
+  background-color:#4988e6;
+  border-radius:5px;
+  text-decoration:none;
+  color:#fff;
+}
+
+.sign_out:hover{
+  background-color:#266DD5;
+}
+
 .header_icon {
   height: 1.5em;
   margin:0.4em 0 0 1em;
@@ -353,7 +402,8 @@ ul {
 }
 
 p.diary_entry {
-  font-family:'Avenir-medium';
+  font-family: 'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
   margin-top: 1.5em;
   margin-bottom:5px;
   margin-left: -2em;
@@ -368,15 +418,27 @@ p.food_diary_entry {
 }
 
 .question {
-  font-family:'Avenir-heavy';
+  font-family:'Avenir-heavy',"Avenir", sans-serif;
+  font-weight:600;
   line-height:1.2em;
   font-size:22px;
   margin-bottom:0.8em;
   text-align:center;
 }
 
+.info_header {
+  font-family:'Avenir-heavy',"Avenir", sans-serif;
+  font-weight:600;
+  line-height:1.2em;
+  font-size:22px;
+  text-align:center;
+  margin-bottom:5px;
+  margin-top:5px;
+}
+
 .sub_question {
-  font-family:'Avenir-medium';
+  font-family: 'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
   line-height:1.2em;
   font-size:18px;
   margin-bottom:1em;
@@ -385,7 +447,8 @@ p.food_diary_entry {
 
 
 label.radio{
-  font-family:'Avenir-medium';
+  font-family: 'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
   line-height:1.2em;
   font-size:20px;
   padding-left: 3em;
@@ -459,6 +522,73 @@ a.link, a.visited {
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
+
+.home_button {
+  padding: 13px 30px 13px 30px;
+  color: #fff;
+  background-color: #6ca1f0;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  border: 1px solid #4988e6;
+  border-width: 1px 1px 2px;
+  box-shadow: 0 0px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+.home_button:hover{
+  background-color: #4988e6;
+}
+
+.home_button_mini {
+  color: #384047;
+  background-color: #e3e3e3;
+  font-size: 12px;
+  width:60px;
+  height:30px;
+  font-family:"Avenir";
+  font-weight:500;
+  text-align: center;
+  text-decoration: none;
+  padding:2px;
+  padding: 6px 11px 6px 11px;
+  margin-top:-10px;
+  margin-left:8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-width: 1px 1px 2px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+}
+
+.home_button_mini:hover{
+  background-color: #ccc;
+  text-decoration: none;
+  color: #384047;
+  font-family:"Avenir";
+  font-weight:500;
+}
+
+.home_footer{
+  font-size:12px;
+  text-align:center;
+}
+
+.home_footer_section{
+  max-width: 100%;
+
+}
+
+.forgot_password{
+  text-decoration:none;
+  color: #384047;
+}
+
+.forgot_password:hover{
+  color:#4988e6;
+  text-decoration:none;
+}
+
 
 a #type_foods {
   width:85%;
@@ -592,8 +722,8 @@ label.hidden_bristol > input:checked + div{
 }
 
 label.hidden_bristol > input:checked + div > div.bristol_text_section{
-  font-family:'Avenir-heavy';
-  font-size:16px;
+  font-family:'Avenir-heavy', "Avenir", sans-serif;
+  font-weight:600;
 }
 
 label.hidden_bristol > input:checked + div > div.bristol_pic_section{
@@ -641,7 +771,7 @@ label.hidden_bristol > input:checked + div > div.bristol_pic_section{
   padding-left:5%;
   margin:auto;
   text-align:center;
-  font-size:14px;
+  font-size:16px;
   line-height:18px;
 }
 
@@ -652,6 +782,12 @@ label.hidden_bristol > input:checked + div > div.bristol_pic_section{
   margin-left:10%;
   margin:right:10%;
   padding-top:5%;
+}
+
+.date_time{
+  font-family:'Avenir-medium', "Avenir", sans-serif;
+  font-weight:500;
+  margin-bottom:3px;
 }
 
 /*************************
@@ -728,5 +864,9 @@ Media Queries
     max-width:400px;
     margin:auto;
     display: block;
+  }
+
+  .home_footer{
+    font-size:15px;
   }
 }

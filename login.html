@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
+  <title>Log In</title>
   <!-- Bootstrap stylesheet-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" href="css/normalize.css">
@@ -13,42 +13,40 @@
       type="image/png" sizes="any"
       href="images/flavicon.png" >
 
-
 </head>
 
 <body style="background-color:#f4f7f8;">
   <div style="margin-top:20px;">
-    <h2 class="home_title">Let's get started!</h2>
+    <h2 class="home_title">Log In</h2>
 
     <form style="margin-top:5px;">
       <label class="home" for="username">
         Username:
-        <input class="home_field" type="text" name="username" x-webkit-speech/>
+        <input type="text" name="username" x-webkit-speech/>
       </label>
 
       <label class="home" for="password">
         Password:
-        <input class="home_field" type="password" name="password" />
-      </label>
-
-      <label class="home" for="password">
-        Re-type password:
-        <input class="home_field" type="password" name="password" />
+        <input type="password" name="password" />
       </label>
 
       <button class="home_button" name="submit" type="submit">
-        Sign Up
+        Log In
       </button>
 
     </form>
 
-    <p>
+    <div class="home_footer_section">
+      <a class="forgot_password" href="#"><p style="text-align:center;">Forgot password?</p></a>
+    </div>
+
+    <br><p>
 
     <div class="home_footer_section">
       <div style="margin:auto;">
-        <h2 class="home_footer">Already have an account?
-          <a class="home_button_mini" href="login.html">
-            Log In
+        <h2 class="home_footer">Don't have an account?
+          <a class="home_button_mini" href="index.html">
+            Sign Up
           </a>
         </h2>
       </div>
