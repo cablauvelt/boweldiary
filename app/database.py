@@ -24,6 +24,9 @@ class User(Base):
 	def __repr__(self):
 		return "<User(name='%s', id='%s')>" % (self.name, self.id)
 
+	def to_response(self):
+		return {'id' : self.id, 'name' : self.name }
+
 class FoodDiaryEntry(Base):
 
 	__tablename__ = 'food_diary'
@@ -32,15 +35,21 @@ class FoodDiaryEntry(Base):
 	author_id = Column(Integer, ForeignKey('users.id'), nullable=False)
 	content = Column(LargeBinary)
 
-Base.metadata.create_all(engine)
+	def to_response(self):
+		return { 'id' : self.id, 'author_id' : self.author_id, 'content' : self.content}
 
-print(User.__table__)
+#class BowelDiaryEntry(Base):
+#
+#	__tablename__ = 'bowel_diary'
+#	id = Column(Integer, primary_key=True)
+
+Base.metadata.create_all(engine)
 
 #Session = sessionmaker(bind=engine)
 
-session = Session()
-user = session.query(User).first()#.filter(User.name is 'user1')
-print(user)
-session.add(User(name='user2'))
-session.add(FoodDiaryEntry(author_id=user.id))
-session.commit()
+#session = Session()
+#user = session.query(User).first()#.filter(User.name is 'user1')
+#print(user)
+#session.add(User(name='user2'))
+#session.add(FoodDiaryEntry(author_id=user.id))
+#session.commit()
