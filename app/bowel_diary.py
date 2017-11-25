@@ -34,7 +34,6 @@ def food_diary(user_name):
 def food_diary_entries(user_name):
 	user = session.query(User).filter(User.name == user_name).first()
 	diary_entries = session.query(FoodDiaryEntry).filter(FoodDiaryEntry.author_id==user.id).order_by(FoodDiaryEntry.created_at)
-	#return jsonify([food_diary_entry.to_response() for food_diary_entry in diary_entries])
 	return diary_entries
 
 @app.route("/users/<user_name>/food_diary", methods=['GET'])
