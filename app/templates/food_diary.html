@@ -84,22 +84,23 @@
       </h2>
 
       <br>
-
+      {% for entry in entries %}
       <div>
         <div id="food_entries">
           <p class="food_diary_entry">
-            Apple, Oatmeal, Coffee, 2% Milk
+            {{ entry.content }}
           </p>
         </div>
         <div id="time_stamp">
           <p>
-            7:55am
+            {{ entry.created_at }}
           </p>
         </div>
         <div id="clear">
         </div>
 
         <hr class="underline">
+        {% endfor %}
 
         <div id="food_entries">
           <p class="food_diary_entry">
