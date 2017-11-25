@@ -20,14 +20,19 @@ def get_users():
 @app.route("/users/<user_name>/food_diary", methods=["GET", "POST"])
 def food_diary(user_name):
 	if request.method == "POST":
+		body = request.get_json()
+		content = body["content"]
 		user = session.query(User).filter(User.name == user_name).first()
-		session.add(FoodDiaryEntry(author_id=user.id, content="blahblahblah"))
+		session.add(FoodDiaryEntry(author_id=user.id, content=content))
 		session.commit()
 		return ('', 204)
 	else:
 		user = session.query(User).filter(User.name == user_name).first()
 		diary_entries = session.query(FoodDiaryEntry).filter(FoodDiaryEntry.author_id==user.id).order_by(FoodDiaryEntry.created_at)
 		return jsonify([food_diary_entry.to_response() for food_diary_entry in diary_entries])
+
+#def food_diary_page(user_name):
+
 
 
 #@app.route("/users/<user_name>/food_diary/<entry_id>", methods=["GET"])
