@@ -2,13 +2,22 @@ from flask import Flask, jsonify, abort, request, render_template
 from datetime import datetime
 import json
 from app.database import Base, Session, User, FoodDiaryEntry
-#Get Base db class, session here from DB.
 
 app = Flask(__name__)
 
 session = Session()
 
 #### GENERAL ####
+@app.route("/users/", methods=['POST'])
+def create_user():
+	password = request.form["password"]
+	username = request.form["username"]
+	new_user = User(name=username, password=password)
+	session.add(new_user)
+	session.commit()
+	return ('', 204)
+
+
 @app.route("/users/<user_name>", methods=['GET'])
 def get_user(user_name):
 	user = session.query(User).filter(User.name == user_name).first()
