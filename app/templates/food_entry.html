@@ -1,0 +1,93 @@
+{% extends "template.html" %}
+{% block head_name %}New Food Entry{% endblock %}
+{% block page_name %}New Food Entry{% endblock %}
+
+{% block info %}
+<p style="text-align:center;">Instead of typing, you can use your phone's built-in microphone to dictate text.</p>
+<img class="help_image" src="{{ url_for('static', filename='images/iphonedictation1.jpg') }}">
+{% endblock %}
+
+
+{% block body %}
+
+<div>
+  <div>
+    <form action = "/food_entry_test_form_submit" method="post">
+
+      <fieldset class="todos_labels">
+
+        <div>
+          <label for="date_time" class="date_time">
+            Date and time for entry:
+          </label>
+          <input name="date_time" type="datetime-local" id="date_time" value="">
+          <script>
+          $(document).ready(function(){
+            var now=new Date();
+            console.log(new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().substring(0,16));
+              $('input[type=datetime-local]').val(new Date(now.getTime()-now.getTimezoneOffset()*60000).toJSON().slice(0,16));
+          });
+          </script>
+
+          <hr style="margin-top:1.5em;">
+
+          <p class="question">
+            What food or drink did you consume, and how much?
+          </p>
+          <p class="sub_question">
+            Ex: 1 cup of skim milk
+          </p>
+        </div>
+
+        <div class="repeatable"></div>
+
+        <script type="text/template" id="todos_labels">
+          <div class="field-group controls-row">
+            <div>
+              <div style="width:85%;float:left;">
+                <input type="text" name="food_entry_{?}" value="{food_entry}" id="food_entry_{?}">
+              </div>
+
+              <div style="width:10%;float:right;margin-top:0.8em;">
+                <input type="button" class="delete" value="X"/>
+              </div>
+              <div id="clear">
+              </div>
+            </div>
+          </div>
+        </script>
+
+        <div id="add_button">
+          <button class="button add" type="button">
+            + Add another
+          </button>
+        </div>
+        <div  name="submit" id="done_button">
+          <button class="done_button" name="submit" type="submit">Complete entry
+          </button>
+        </div>
+        <div id="clear">
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='jquery.repeatable.js') }}"></script>
+
+  <script>
+  $(function() {
+    $(".todos_labels .repeatable").repeatable({
+      addTrigger: ".todos_labels .add",
+      deleteTrigger: ".todos_labels .delete",
+      template: "#todos_labels",
+      startWith: 1,
+    });
+  });
+  </script>
+
+</div>
+
+{% endblock %}
+
+
+</html>

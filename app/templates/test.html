@@ -1,0 +1,40 @@
+#form (one text field, one radio, one submit button)
+
+{% extends "template.html" %}
+{% block head_name %}Test Form{% endblock %}
+
+{% block page_name %}Test{% endblock %}
+
+
+{% block info %}
+{% endblock %}
+
+
+{% block body %}
+
+<form action="/test_form_submit" method="post">
+
+  <label>Do you like ice cream?</label>
+  <div class="radio">
+    <label>
+      <input name="like_ice_cream" type="radio" value="Yes"/>
+      Yes
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input name="like_ice_cream" type="radio" value="No"/>
+      No
+    </label>
+  </div>
+
+  <label>What's your favorite flavor?</label>
+  <textarea name="ice_cream_flavor" cols="40" rows="2"></textarea>
+
+  <button class="button " name="submit" type="submit">
+    Submit
+  </button>
+
+</form>
+
+{% endblock %}

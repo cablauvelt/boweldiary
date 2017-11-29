@@ -1,0 +1,33 @@
+{% extends "header.html" %}
+{% block head_name %}Profile{% endblock %}
+
+{% block page_name %}Profile{% endblock %}
+
+
+{% block info %}
+{% endblock %}
+
+
+{% block body %}
+
+
+  <form>
+    <label class="home" for="name">
+      Name:
+      <input type="text" name="name" placeholder="Displays saved name" x-webkit-speech/>
+    </label>
+
+    <label class="home" for="password">
+      Password:
+      <input type="password" name="password" placeholder="Displays dots for password"/>
+    </label>
+
+    <button name="submit" type="submit">
+      Save
+    </button>
+
+  </form>
+
+{% endblock %}
+
+</html>
