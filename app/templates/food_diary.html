@@ -1,0 +1,99 @@
+{% extends "template.html" %}
+{% block head_name %}Food Diary{% endblock %}
+{% block page_name %}Food Diary{% endblock %}
+
+{% block info %}
+{% endblock %}
+
+
+{% block body %}
+  <div class="mainContainer"> <!-- main container-->
+      <a id="type_foods" class="newEntry" href="/users/<user_name>/food_entry"> <p class="newEntry"> + New Food Entry </p> </a>
+
+  </div>
+
+  <hr>
+  <div>
+
+    <div class="sectionContainer">
+      <h2>
+        <span class="date">Wednesday, </span>
+        <span > October 25th </span>
+      </h2>
+
+      <div>
+      {% for entry in entries %}
+        <div id="food_entries">
+          <p class="food_diary_entry">
+            {{ entry.content }}
+          </p>
+        </div>
+        <div id="time_stamp">
+          <p>
+            {{ entry.created_at }}
+          </p>
+        </div>
+        <div id="clear">
+        </div>
+        <hr class="underline">
+      {% endfor %}
+
+        <div id="food_entries">
+          <p class="food_diary_entry">
+            Sandwich with turkey, whole wheat bread, cheese, tomato, mustard
+          </p>
+        </div>
+        <div id="time_stamp">
+          <p>
+            12:45pm
+          </p>
+        </div>
+        <div id="clear">
+        </div>
+        <hr class="underline">
+        <div id="food_entries">
+          <p class="food_diary_entry">
+            Banana, peanut butter
+          </p>
+        </div>
+        <div id="time_stamp">
+          <p>
+            2:35pm
+          </p>
+        </div>
+        <div id="clear">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="sectionContainer">
+      <h2>
+        <span class="date">Tuesday, </span>
+        <span > October 24th </span>
+      </h2>
+
+      <br>
+
+      <div>
+        <div id="food_entries">
+          <p class="food_diary_entry">
+            Apple, Oatmeal, Coffee, 2% Milk
+          </p>
+        </div>
+        <div id="time_stamp">
+          <p>
+            7:55am
+          </p>
+        </div>
+        <div id="clear">
+        </div>
+
+      </div>
+
+    </div>
+
+  {% endblock %}
+
+
+  </html>

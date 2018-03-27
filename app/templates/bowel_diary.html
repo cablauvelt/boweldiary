@@ -1,0 +1,124 @@
+{% extends "template.html" %}
+{% block head_name %}Bowel Diary{% endblock %}
+{% block page_name %}Bowel Diary{% endblock %}
+
+{% block info %}
+{% endblock %}
+
+
+{% block body %}
+<div class="mainContainer"> <!-- main container-->
+
+  <a class="newEntry" href="/users/<user_name>/bowel_entry"> <p class="newEntry"> + New Bowel Entry </p> </a>
+</div>
+
+<hr>
+<div>
+
+  <div class="sectionContainer">
+    <h2>
+      <span class="date">Wednesday, </span>
+      <span > October 25th </span>
+    </h2>
+    <ul>
+
+      {% for entry in entries %}
+      {% if entry.bm_type == "LEAK" %}  <!-- remember to set this value -->
+      <div>
+        <a class="link" href="#bowel_entry_details" data-toggle="collapse">
+          <p style="margin-top:1em;" class="diary_entry">
+            <img class="bowel_diary_icon" src="{{ url_for('static', filename='images/drop.svg') }}">
+            {{ entry.bm_type }}
+            <span><img class="collapse_icon" src="{{ url_for('static', filename='images/plus.svg') }}"></span>
+          </p>
+
+          <p style="margin-bottom:0em;">
+            {{ entry.created_at }}
+          </p>
+        </a>
+        <div id="bowel_entry_details" class="collapse" >
+          - {{ entry.doing_during_leak }}
+          <br>
+          - {{ entry.urgency }}
+          <br>
+          - {{ entry.bristol }}
+        </div>
+      </div>
+
+      {% else %}
+      <div>
+        <a class="link" href="#bowel_entry_details" data-toggle="collapse">
+          <p style="margin-top:1em;" class="diary_entry">
+            <img class="bowel_diary_icon" src="{{ url_for('static', filename='images/toilet.svg') }}">
+            {{ entry.bm_type }}
+            <span><img class="collapse_icon" src="{{ url_for('static', filename='images/plus.svg') }}"></span>
+          </p>
+
+          <p style="margin-bottom:0em;">
+            {{ entry.created_at }}
+          </p>
+        </a>
+        <div id="bowel_entry_details" class="collapse" >
+          - {{ entry.staining }}
+          <br>
+          - {{ entry.urgency }}
+          <br>
+          - {{ entry.bristol }}
+        </div>
+      </div>
+
+      {% endif %}
+
+      <hr class="underline">
+
+      {% endfor %}
+
+      <div>
+        <a class="link" href="#bowel_entry_details1" data-toggle="collapse">
+          <p style="margin-top:1em;" class="diary_entry">
+            <img class="bowel_diary_icon" src="{{ url_for('static', filename='images/toilet.svg') }}">&nbsp; Bowel movement
+            <span><img class="collapse_icon" src="{{ url_for('static', filename='images/plus.svg') }}"></span>
+          </p>
+          <p style="margin-bottom:0em;">1:55pm</p>
+        </a>
+        <div id="bowel_entry_details1" class="collapse" >
+          - No leakage or staining
+          <br>
+          - Moderate urgency
+          <br>
+          - Separate hard lumps
+        </div>
+      </div>
+      <hr class="underline">
+      <div>
+        <a class="link" href="#bowel_entry_details2" data-toggle="collapse">
+          <p style="margin-top:1em;" class="diary_entry">
+            <img class="bowel_diary_icon" src="{{ url_for('static', filename='images/drop.svg') }}">&nbsp; Bowel movement
+            <span><img class="collapse_icon" src="{{ url_for('static', filename='images/plus.svg') }}"></span>
+          </p>
+          <p style="margin-bottom:0em;">6:55pm</p>
+        </a>
+        <div id="bowel_entry_details2" class="collapse" >
+          - Situation: Exercising
+          <br>
+          - Moderate urgency
+          <br>
+          - Liquid, no solid pieces
+        </div>
+      </div>
+
+    </ul>
+  </div>
+
+  <div class="sectionContainer">
+    <h2>
+      <span class="date">Tuesday, </span>
+      <span > October 24th </span>
+    </h2>
+  </div>
+
+</div>
+
+{% endblock %}
+
+</html>

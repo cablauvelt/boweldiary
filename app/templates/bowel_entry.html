@@ -1,0 +1,230 @@
+{% extends "template.html" %}
+{% block head_name %}New Bowel Entry{% endblock %}
+
+{% block page_name %}New Bowel Entry{% endblock %}
+
+
+{% block info %}
+{% endblock %}
+
+
+{% block body %}
+
+<div>
+  <!--Form for Bowel Entry Questions-->
+  <form id="live_form" action = "/bowel_entry_test_form_submit" method="post">
+
+    <label for="date_time" class="date_time">
+      Date and time for entry:
+    </label>
+    <input name="date_time" type="datetime-local" id="date_time" value="">
+    <script>
+    $(document).ready(function(){
+      var now=new Date();
+      console.log(new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().substring(0,16));
+        $('input[type=datetime-local]').val(new Date(now.getTime()-now.getTimezoneOffset()*60000).toJSON().slice(0,16));
+    });
+    </script>
+
+    <hr style="margin-top:1.5em;">
+
+    <div class="form-group">
+
+      <label class="question">
+        What kind of bowel episode did you have?
+      </label>
+      <div class="">
+        <div class="radio">
+          <label class="radio">
+            <input name="episode" type="radio" value="toilet"/>
+            Bowel movement in toilet
+          </label>
+        </div>
+        <p>
+          <div class="radio">
+            <label class="radio">
+              <input name="episode" type="radio" value="leakage"/>
+              Bowel leakage
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form_group_hidden" id="episode_toilet">
+        <hr>
+        <label class="question" for="episode_toilet">
+          Did you experience any leakage or staining afterwards?
+        </label>
+        <div>
+          <label class="hidden_radio">
+            <input name="bm_leak" type="radio" value="yes"/>
+            <div style="margin-bottom:0em;" id="left_select" class="select_option" >Yes</div>
+          </label>
+          <label class="hidden_radio">
+            <input name="bm_leak" type="radio" value="no"/>
+            <div style="margin-bottom:0em;"  id="right_select" class="select_option" >No</div>
+          </label>
+        </div>
+        <div id="clear"></div>
+      </div>
+
+      <div class="form_group_hidden" id="episode_leakage">
+        <hr>
+        <label class="question" for="episode_leakage">
+          What were you doing when the leak happened?
+        </label>
+        <textarea class="form-control" cols="40" id="episode_leakage" name="episode_leakage" rows="2" style="margin:0;"></textarea>
+      </div>
+
+      <div class="form_group_hidden" id="urgency">
+        <hr>
+        <label class="question" for="urgency">
+          Was there urgency? <br><span>(Feeling of "gotta go!")</span>
+        </label>
+        <div>
+          <label class="radio">
+            <input name="urgency" type="radio" value="none"/>
+            None
+          </label>
+          <p></p>
+          <label class="radio">
+            <input name="urgency" type="radio" value="mild"/>
+            Mild
+          </label>
+          <p></p>
+          <label class="radio">
+            <input name="urgency" type="radio" value="moderate"/>
+            Moderate
+          </label>
+          <p></p>
+          <label class="radio">
+            <input name="urgency" type="radio" value="severe"/>
+            Severe
+          </label>
+        </div>
+      </div>
+
+
+      <div class="form_group_hidden" id="bristol">
+        <hr>
+        <label class="question" for="bristol">
+          Select the option that best matches your stool.
+        </label>
+        <div id="bristol_container">
+          <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+            <input name="bristol" type="radio" value="bristol1"/>
+            <div>
+              <div class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol1.png') }}" alt="Bristol Type 1" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Separate hard lumps
+              </div>
+            </div>
+          </label>
+
+          <div></div>
+
+          <label class="hidden_bristol" id="bristol_select" style="right:50%">
+            <input name="bristol" type="radio" value="bristol2"/>
+            <div>
+              <div  class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol2.png') }}" alt="Bristol Type 2" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Lumpy and sausage like
+              </div>
+            </div>
+          </label>
+
+        </div>
+
+        <div id="bristol_container">
+          <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+            <input name="bristol" type="radio" value="bristol3"/>
+            <div>
+              <div class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol3.png') }}" alt="Bristol Type 3" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Sausage shape with surface cracks
+              </div>
+            </div>
+          </label>
+
+          <div></div>
+
+          <label class="hidden_bristol" id="bristol_select" style="right:50%">
+            <input name="bristol" type="radio" value="bristol4"/>
+            <div>
+              <div  class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol4.png') }}" alt="Bristol Type 4" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Smooth, soft sausage or snake &nbsp;&nbsp;&nbsp;
+              </div>
+            </div>
+          </label>
+
+        </div>
+
+        <div id="bristol_container">
+          <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+            <input name="bristol" type="radio" value="bristol5"/>
+            <div>
+              <div class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol5.png') }}" alt="Bristol Type 5" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Soft blobs with clear cut edges (easy to pass)
+              </div>
+            </div>
+          </label>
+
+          <div></div>
+
+          <label class="hidden_bristol" id="bristol_select" style="right:50%">
+            <input name="bristol" type="radio" value="bristol6"/>
+            <div>
+              <div  class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol6.png') }}" alt="Bristol Type 6" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Mushy consistency with ragged edges
+              </div>
+            </div>
+          </label>
+
+        </div>
+
+        <div id="bristol_container" style="width:50%;max-width:200px;">
+          <label class="hidden_bristol" id="bristol_select" style="left:-50%;">
+            <input name="bristol" type="radio" value="bristol7"/>
+            <div>
+              <div class="bristol_pic_section">
+                <img src="{{ url_for('static', filename='bristolpics/bristol7.png') }}" alt="Bristol Type 7" class="bristol_pic">
+              </div>
+              <div class="bristol_text_section">
+                Liquid, no solid pieces
+              </div>
+            </div>
+          </label>
+        </div>
+
+      </div>
+
+      <br>
+
+      <div class="form_group_hidden" name="submit">
+        <button class="button " name="submit" type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+
+  </div>
+
+  {% endblock %}
+
+  </html>

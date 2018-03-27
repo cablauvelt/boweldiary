@@ -1,0 +1,19 @@
+#form (one text field, one radio, one submit button)
+
+{% extends "template.html" %}
+{% block head_name %}Test Form{% endblock %}
+
+{% block page_name %}Test{% endblock %}
+
+
+{% block info %}
+{% endblock %}
+
+
+{% block body %}
+<div>
+  <br><br>
+<p> Do I like ice cream, you ask?  {{ like_ice_cream }} </p>
+<p> And my favorite flavor is: {{ ice_cream_flavor }} </p>
+</div>
+{% endblock %}
