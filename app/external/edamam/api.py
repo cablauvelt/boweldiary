@@ -5,7 +5,7 @@ from constants import app_id, app_key
 
 search = "https://api.edamam.com/api/food-database/parser"
 
-auto_complete = "http://api.edamam.com/auto-complete"
+auto_complete_url = "http://api.edamam.com/auto-complete"
 
 nutrient_api = "https://api.edamam.com/api/food-database/nutrients"
 
@@ -29,7 +29,7 @@ def barcode_search(barcode):
 
 def auto_complete(query_text):
     query_params = create_api_params({ "q" : query_text })
-    r = requests.get(auto_complete, query_params)
+    r = requests.get(auto_complete_url, query_params)
     return r.json()
 
 def create_ingredient(food_uri, measure_uri, quantity=1):
@@ -47,5 +47,5 @@ def get_nutrients(ingredient_text):
     return r
 
 if __name__ == "__main__":
-    cherry_pie = get_nutrients("cherry pie")
-    print(cherry_pie.text)
+    cherry_pie = auto_complete("cher")
+    print(cherry_pie)
